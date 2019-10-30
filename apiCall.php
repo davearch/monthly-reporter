@@ -60,9 +60,9 @@ function makeAPICall( $type = NULL )
         return $classInfo;
     } elseif ($type == 'report') {
         //$reportInfo = $dataService->FindById("class", 5000000000000111940);
-        $reportService->setStartDate("2015-01-01");
-        $reportService->setAccountingMethod("Accrual");
-        $reportService->setClassId("5000000000000111940");
+        $reportService->setStartDate("2019-04-01");
+        $reportService->setAccountingMethod("Cash");
+        $reportService->setClassId("900000000000363117");
         $profitAndLossReport = $reportService->executeReport(ReportName::PROFITANDLOSS);
         if (!$profitAndLossReport) {
             exit("ProfitAndLossReport Is Null.\n");
