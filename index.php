@@ -182,7 +182,7 @@ if (isset($_SESSION['sessionAccessToken'])) {
                     data: { type: 'report' },
                 }).done(function( msg ) {
                     $( '#report' ).html( msg );
-                    $.getJSON('./log_report_folder/results.json', function(result) {
+                    $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
                       JSONToCSVConvertor(result, 'profitAndLoss', true);
                       //$('#csv').text(ConvertToCSV(result));
                     });
