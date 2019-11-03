@@ -149,7 +149,29 @@ if (isset($_SESSION['sessionAccessToken'])) {
 
             $('#lnkDwnldLnk')[0].click();    
             document.body.removeChild(link);
-}
+        }
+
+        function download_csv_file(csv_data) {
+            //this trick will generate a temp "a" tag
+            var link = document.createElement("a");    
+            link.id="lnkDwnldLnk";
+
+            //this part will append the anchor tag and remove it after automatic click
+            document.body.appendChild(link);
+
+            var csv = csv_data;  
+            blob = new Blob([csv], { type: 'text/csv' }); 
+            var csvUrl = window.webkitURL.createObjectURL(blob);
+            var filename = 'UserExport.csv';
+            $("#lnkDwnldLnk")
+            .attr({
+                'download': filename,
+                'href': csvUrl
+            }); 
+
+            $('#lnkDwnldLnk')[0].click();    
+            document.body.removeChild(link);
+        }
 
 
         var apiCall = function() {
@@ -184,11 +206,9 @@ if (isset($_SESSION['sessionAccessToken'])) {
                 }).done(function( msg ) {
                     $( '#report' ).html( msg );
                     $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
-                      //JSONToCSVConvertor(result, 'profitAndLoss', true);
-                      //$('#csv').text(ConvertToCSV(result));
                       try {
                         const csv = json2csv.parse(result);
-                        console.log(csv);
+                        download_csv_file(csv);
                       } catch (err) {
                         console.error(err);
                       }
