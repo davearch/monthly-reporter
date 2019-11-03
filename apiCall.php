@@ -98,7 +98,7 @@ function makeAPICall( $type = NULL )
             */
 
             
-            $downloadDirectory = './log_report_folder/results.json';
+            $downloadDirectory = './log_report_folder/' + $reportName + 'results.json';
             echo("Writing to disk...");
             $fp = fopen($downloadDirectory, 'w+');
             fwrite($fp, $json_encoded_report);
