@@ -19,13 +19,13 @@ function object_to_array($obj) {
 function makeAPICall( $type = NULL )
 {
     // Create SDK instance
-    $config = include('config.php');
+    //$config = include('config.php');
     $dataService = DataService::Configure(array(
         'auth_mode' => 'oauth2',
-        'ClientID' => $config['client_id'],
-        'ClientSecret' =>  $config['client_secret'],
-        'RedirectURI' => $config['oauth_redirect_uri'],
-        'scope' => $config['oauth_scope'],
+        'ClientID' => $_ENV['client_id'],
+        'ClientSecret' =>  $_ENV['client_secret'],
+        'RedirectURI' => $_ENV['oauth_redirect_uri'],
+        'scope' => $_ENV['oauth_scope'],
         'baseUrl' => "development"
     ));
 
