@@ -72,7 +72,8 @@ function makeAPICall( $type = NULL )
             echo("ReportName: " . $reportName . "\n");
             echo("Profit And Loss Report Execution Successful!" . "\n");
             echo("\n");
-            echo(json_encode($profitAndLossReport, true));
+            $json_encoded_report = json_encode($profitAndLossReport, true);
+            echo($json_encoded_report);
             echo("\n");
 
             /*
@@ -100,7 +101,7 @@ function makeAPICall( $type = NULL )
             $downloadDirectory = './log_report_folder/results.json';
             echo("Writing to disk...");
             $fp = fopen($downloadDirectory, 'w');
-            fwrite($fp, $profitAndLossReport);
+            fwrite($fp, $json_encoded_report);
             fclose($fp);
 
             $address = $reportName . " written to " . $downloadDirectory;
