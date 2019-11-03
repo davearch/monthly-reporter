@@ -26,7 +26,7 @@ function makeAPICall( $type = NULL )
         'ClientSecret' =>  $_ENV['client_secret'],
         'RedirectURI' => $_ENV['oauth_redirect_uri'],
         'scope' => $_ENV['oauth_scope'],
-        'baseUrl' => "development"
+        'baseUrl' => "production"
     ));
 
     $serviceContext = $dataService->getServiceContext();

@@ -19,7 +19,7 @@ function refreshToken()
         'ClientID' => $config['client_id'],
         'ClientSecret' =>  $config['client_secret'],
         'RedirectURI' => $config['oauth_redirect_uri'],
-        'baseUrl' => "development",
+        'baseUrl' => "production",
         'refreshTokenKey' => $accessToken->getRefreshToken(),
         'QBORealmID' => "The Company ID which the app wants to access",
     ));

@@ -21,7 +21,7 @@ $dataService = DataService::Configure(array(
     'ClientSecret' => $_ENV['client_secret'],
     'RedirectURI' => $_ENV['oauth_redirect_uri'],
     'scope' => $_ENV['oauth_scope'],
-    'baseUrl' => "development"
+    'baseUrl' => "production"
 
 ));
 
