@@ -9,7 +9,7 @@ function processCode()
 {
 
     // Create SDK instance
-    $config = include('config.php');
+    //$config = include('config.php');
     $dataService = DataService::Configure(array(
         'auth_mode' => 'oauth2',
         'ClientID' => $_ENV['client_id'],
