@@ -208,6 +208,7 @@ if (isset($_SESSION['sessionAccessToken'])) {
                     $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
                       try {
                         const csv = json2csv.parse(result);
+                        console.log(csv);
                         download_csv_file(csv);
                       } catch (err) {
                         console.error(err);
