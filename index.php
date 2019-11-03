@@ -57,6 +57,7 @@ if (isset($_SESSION['sessionAccessToken'])) {
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="views/common.css">
+    <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -95,7 +96,6 @@ if (isset($_SESSION['sessionAccessToken'])) {
         function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {     
 
             //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
-            alert(JSONData);
             var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
             console.log(arrData);
             var CSV = '';    
@@ -184,8 +184,14 @@ if (isset($_SESSION['sessionAccessToken'])) {
                 }).done(function( msg ) {
                     $( '#report' ).html( msg );
                     $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
-                      JSONToCSVConvertor(result, 'profitAndLoss', true);
+                      //JSONToCSVConvertor(result, 'profitAndLoss', true);
                       //$('#csv').text(ConvertToCSV(result));
+                      try {
+                        const csv = json2csv.parse(result);
+                        console.log(csv);
+                      } catch (err) {
+                        console.error(err);
+                      }
                     });
                 });
             }
