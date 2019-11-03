@@ -61,6 +61,7 @@ function makeAPICall( $type = NULL )
     } elseif ($type == 'report') {
         //$reportInfo = $dataService->FindById("class", 5000000000000111940);
         $reportService->setStartDate("2019-04-01");
+        $reportService->setEndDate("2019-04-01");
         $reportService->setAccountingMethod("Cash");
         $reportService->setClassId("900000000000363117");
         $profitAndLossReport = $reportService->executeReport(ReportName::PROFITANDLOSS);
