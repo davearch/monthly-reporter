@@ -100,7 +100,7 @@ function makeAPICall( $type = NULL )
             $downloadDirectory = './log_report_folder/results.json';
             echo("Writing to disk...");
             $fp = fopen($downloadDirectory, 'w');
-            fwrite($fp, json_encode($profitAndLossReport, true));
+            fwrite($fp, $profitAndLossReport);
             fclose($fp);
 
             $address = $reportName . " written to " . $downloadDirectory;
