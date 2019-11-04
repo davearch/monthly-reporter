@@ -209,8 +209,7 @@ if (isset($_SESSION['sessionAccessToken'])) {
                       console.log(result.Header);
                       try {
                         const opts = { excelStrings: true };
-                        const csv = json2csv.parse(result, opts);
-                        console.log(csv);
+                        const csv = json2csv.parse(result.Rows, opts);
                         download_csv_file(csv);
                       } catch (err) {
                         console.error(err);
