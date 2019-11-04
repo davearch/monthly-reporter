@@ -206,7 +206,8 @@ if (isset($_SESSION['sessionAccessToken'])) {
                 }).done(function( msg ) {
                     $( '#report' ).html( msg );
                     $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
-                      result.Rows.Row.foreach(function(item) {
+                      const rowArray = result.Rows.Row;
+                      rowArray.foreach(function(item) {
                         if (item.Header) {
                               console.log(item.Header);
                           }
