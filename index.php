@@ -206,8 +206,8 @@ if (isset($_SESSION['sessionAccessToken'])) {
                 }).done(function( msg ) {
                     $( '#report' ).html( msg );
                     $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
-                      foreach (item in result.Rows.Row) {
-                          if (item.Header) {
+                      result.Rows.Row.foreach(function(item) {
+                        if (item.Header) {
                               console.log(item.Header);
                           }
                           if (item.Rows) {
@@ -216,7 +216,7 @@ if (isset($_SESSION['sessionAccessToken'])) {
                           if (item.Summary) {
                               console.log(item.Summary);
                           }
-                      }
+                      });
                       try {
                         const opts = { excelStrings: true };
                         const csv = json2csv.parse(result.Rows, opts);
