@@ -63,6 +63,7 @@ function makeAPICall( $type = NULL )
         $reportService->setStartDate("2019-04-01");
         $reportService->setEndDate("2019-10-31");
         $reportService->setAccountingMethod("Cash");
+        $reportService->setQzurl(true);
         $reportService->setClassId("900000000000363117");
         $profitAndLossReport = $reportService->executeReport(ReportName::PROFITANDLOSS);
         if (!$profitAndLossReport) {
