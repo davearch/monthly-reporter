@@ -214,7 +214,6 @@ if (isset($_SESSION['sessionAccessToken'])) {
                           for (const [key, value] of innerEntries) {
                               console.log(key, value);
                           }
-                          console.log(innerEntries);
                       }
 
                       try {
