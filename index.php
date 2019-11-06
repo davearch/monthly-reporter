@@ -211,6 +211,9 @@ if (isset($_SESSION['sessionAccessToken'])) {
                       const values = Object.values(rowArray);
                       for (const value of values) {
                           const innerEntries = Object.entries(value);
+                          for (const [key, value] of innerEntries) {
+                              console.log(key, value);
+                          }
                           console.log(innerEntries);
                       }
 
