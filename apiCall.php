@@ -65,7 +65,8 @@ function makeAPICall( $type = NULL )
         $reportService->setAccountingMethod("Cash");
         //$reportService->setQzurl('true');
         $reportService->setClassId("900000000000363117");
-        $profitAndLossReport = $reportService->executeReport(ReportName::PROFITANDLOSS);
+        //$profitAndLossReport = $reportService->executeReport(ReportName::PROFITANDLOSS);
+        $profitAndLossReport = $reportService->executeReport('ProfitAndLossDetail');
         if (!$profitAndLossReport) {
             exit("ProfitAndLossReport Is Null.\n");
         } else {
