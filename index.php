@@ -206,19 +206,16 @@ if (isset($_SESSION['sessionAccessToken'])) {
                 }).done(function( msg ) {
                     $( '#report' ).html( msg );
                     $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
+
                       const rowArray = result.Rows.Row;
+
                       console.log(typeof(rowArray));
-                      rowArray.foreach(function(item) {
-                        if (item.Header) {
-                              console.log(item.Header);
-                          }
-                          if (item.Rows) {
-                              console.log(item.Rows);
-                          }
-                          if (item.Summary) {
-                              console.log(item.Summary);
-                          }
-                      });
+                      
+                      for (var property in rowArray) {
+                        if (rowArray.hasOwnProperty(property)) {
+                          console.log(property);
+                        }
+                      }
                       try {
                         const opts = { excelStrings: true };
                         const csv = json2csv.parse(result.Rows, opts);
