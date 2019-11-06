@@ -208,9 +208,9 @@ if (isset($_SESSION['sessionAccessToken'])) {
                     $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
 
                       const rowArray = result.Rows.Row;
-                      const entries = Object.entries(rowArray);
-                      console.log(entries);
-                      
+                      const values = Object.values(rowArray);
+                      console.log(values);
+
                       try {
                         const opts = { excelStrings: true };
                         const csv = json2csv.parse(result.Rows, opts);
