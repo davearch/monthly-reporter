@@ -205,7 +205,7 @@ if (isset($_SESSION['sessionAccessToken'])) {
                     data: { type: 'report' },
                 }).done(function( msg ) {
                     $( '#report' ).html( msg );
-                    $.getJSON('./log_report_folder/profitandlossresults.json', function(result) {
+                    $.getJSON('./log_report_folder/profitandlossdetailresults.json', function(result) {
 
                       const rowArray = result.Rows.Row;
                       const values = Object.values(rowArray);
