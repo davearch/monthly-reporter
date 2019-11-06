@@ -209,7 +209,10 @@ if (isset($_SESSION['sessionAccessToken'])) {
 
                       const rowArray = result.Rows.Row;
                       const values = Object.values(rowArray);
-                      console.log(values);
+                      for (const value of values) {
+                          console.log(typeof(value));
+                          console.log(value);
+                      }
 
                       try {
                         const opts = { excelStrings: true };
