@@ -210,8 +210,8 @@ if (isset($_SESSION['sessionAccessToken'])) {
                       const rowArray = result.Rows.Row;
                       const values = Object.values(rowArray);
                       for (const value of values) {
-                          const innerValues = Object.values(value);
-                          console.log(innerValues);
+                          const innerEntries = Object.entries(value);
+                          console.log(innerEntries);
                       }
 
                       try {
